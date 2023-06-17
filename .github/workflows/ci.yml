@@ -21,7 +21,7 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: bats -v
-      - run: nmp run build
+        uses: nmp run build
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v1
         with:
