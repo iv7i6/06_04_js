@@ -8,13 +8,20 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
       # TODO: укажите шаги по:
       # 1. Установке зависимостей
       # 2. Сборке проекта  
+      - name: NMP 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+      - run: npm install -g bats
+      - run: bats -v
+
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v1
         with:
